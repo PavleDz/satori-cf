@@ -1,6 +1,6 @@
 {
   "name": "satori-cf",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "SVG-only, batch-optimized Open Graph image generation for Cloudflare Workers",
   "author": "Pavle Dzuverovic",
