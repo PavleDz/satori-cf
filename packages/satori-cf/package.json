@@ -1,0 +1,51 @@
+{
+  "name": "satori-cf",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "SVG-only, batch-optimized Open Graph image generation for Cloudflare Workers",
+  "author": "Pavle Dzuverovic",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PavleDz/satori-cf"
+  },
+  "keywords": [
+    "satori",
+    "cloudflare",
+    "workers",
+    "og",
+    "open-graph",
+    "svg",
+    "image-generation",
+    "social-cards"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "node bin/build.js",
+    "ts": "tsc --noEmit"
+  },
+  "dependencies": {
+    "just-camel-case": "^6.2.0",
+    "satori": "^0.15.2",
+    "yoga-wasm-web": "0.3.3"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250610.0",
+    "@types/node": "^20.19.0",
+    "@types/react": "^19.0.0",
+    "esbuild": "^0.19.12",
+    "esbuild-plugin-d.ts": "^1.3.1",
+    "typescript": "^5.8.3"
+  }
+}

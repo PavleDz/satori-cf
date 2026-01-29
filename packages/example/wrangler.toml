@@ -1,0 +1,6 @@
+name = "satori-cf-example"
+main = "src/index.ts"
+compatibility_date = "2026-01-28"
+
+[observability]
+enabled = true
