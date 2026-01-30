@@ -26,10 +26,10 @@ import type { OGOptions, OGResult } from "../types";
  * const result = await generateOG('<div style="color: red">Hello</div>');
  * ```
  */
-export async function generateOG(
+export const generateOG = async (
   element: React.ReactNode | string,
   options: OGOptions = {}
-): Promise<OGResult<string>> {
+): Promise<OGResult<string>> => {
   try {
     // 1. Ensure WASM is initialized
     await ensureYogaInitialized();
@@ -81,4 +81,4 @@ export async function generateOG(
           : new SVGGenerationError(String(err)),
     };
   }
-}
+};

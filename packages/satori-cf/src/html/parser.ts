@@ -15,7 +15,7 @@ import {
  * @param html - HTML string to parse
  * @returns Promise resolving to a React-like node or null on error
  */
-export async function parseHtml(html: string): Promise<React.ReactNode | null> {
+export const parseHtml = async (html: string): Promise<React.ReactNode | null> => {
   let vdomStr = ``;
 
   const rewriter = new HTMLRewriter()
@@ -60,4 +60,4 @@ export async function parseHtml(html: string): Promise<React.ReactNode | null> {
     console.error(e);
     return null;
   }
-}
+};

@@ -30,10 +30,10 @@ import type { Font } from "satori";
  * }
  * ```
  */
-export async function generateOGBatch(
+export const generateOGBatch = async (
   items: BatchItem[],
   options: BatchOptions = {}
-): Promise<BatchResult[]> {
+): Promise<BatchResult[]> => {
   const { concurrency = 5, failFast = false, ...defaultOptions } = options;
 
   // 1. Single WASM initialization for the entire batch (amortization)
@@ -122,4 +122,4 @@ export async function generateOGBatch(
   results.sort((a, b) => a.index - b.index);
 
   return results;
-}
+};

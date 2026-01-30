@@ -29,6 +29,8 @@ export type {
   EmojiType,
 } from "./types";
 
+export type { Font } from "satori";
+
 // Errors
 export {
   SatoriCFError,

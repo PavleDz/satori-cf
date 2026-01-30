@@ -23,7 +23,7 @@ const state: {
  *
  * @returns Promise that resolves when Yoga is ready
  */
-export async function ensureYogaInitialized(): Promise<void> {
+export const ensureYogaInitialized = async (): Promise<void> => {
   // Already initialized, return immediately
   if (state.initialized) {
     return;
@@ -54,11 +54,9 @@ export async function ensureYogaInitialized(): Promise<void> {
   })();
 
   return state.initializing;
-}
+};
 
 /**
  * Check if Yoga has been initialized
  */
-export function isInitialized(): boolean {
-  return state.initialized;
-}
+export const isInitialized = (): boolean => state.initialized;

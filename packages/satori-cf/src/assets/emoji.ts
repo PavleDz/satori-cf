@@ -8,11 +8,10 @@ const assetCache = new Map<string, AssetLoaderResult>();
 const U200D = String.fromCharCode(8205);
 const UFE0Fg = /\uFE0F/g;
 
-function getIconCode(char: string): string {
-  return toCodePoint(char.indexOf(U200D) < 0 ? char.replace(UFE0Fg, "") : char);
-}
+const getIconCode = (char: string): string =>
+  toCodePoint(char.indexOf(U200D) < 0 ? char.replace(UFE0Fg, "") : char);
 
-function toCodePoint(unicodeSurrogates: string): string {
+const toCodePoint = (unicodeSurrogates: string): string => {
   const r: string[] = [];
   let c2 = 0;
   let p = 0;
@@ -29,7 +28,7 @@ function toCodePoint(unicodeSurrogates: string): string {
     }
   }
   return r.join("-");
-}
+};
 
 const apis: Record<EmojiType, string | ((code: string) => string)> = {
   twemoji: (code: string) =>
@@ -49,16 +48,14 @@ const apis: Record<EmojiType, string | ((code: string) => string)> = {
     "_flat.svg",
 };
 
-function loadEmoji(code: string, type: EmojiType): Promise<Response> {
-  if (!type || !apis[type]) {
-    type = "twemoji";
-  }
-  const api = apis[type];
+const loadEmoji = (code: string, type: EmojiType): Promise<Response> => {
+  const resolvedType = !type || !apis[type] ? "twemoji" : type;
+  const api = apis[resolvedType];
   if (typeof api === "function") {
     return fetch(api(code));
   }
   return fetch(`${api}${code.toUpperCase()}.svg`);
-}
+};
 
 /**
  * Creates a dynamic asset loader for emojis.

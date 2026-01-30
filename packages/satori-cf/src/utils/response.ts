@@ -15,10 +15,10 @@ import type { SVGResponseOptions } from "../types";
  * }
  * ```
  */
-export function createSVGResponse(
+export const createSVGResponse = (
   svg: string,
   options: SVGResponseOptions = {}
-): Response {
+): Response => {
   const { headers = {}, status = 200, statusText, debug = false } = options;
 
   return new Response(svg, {
@@ -32,4 +32,4 @@ export function createSVGResponse(
     status,
     statusText,
   });
-}
+};

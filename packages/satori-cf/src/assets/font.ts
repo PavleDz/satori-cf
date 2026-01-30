@@ -8,11 +8,11 @@ import { FontLoadError } from "../errors";
  * @param options - Font loading options
  * @returns ArrayBuffer containing the font data
  */
-export async function loadGoogleFont({
+export const loadGoogleFont = async ({
   family,
   weight,
   text,
-}: GoogleFontOptions): Promise<ArrayBuffer> {
+}: GoogleFontOptions): Promise<ArrayBuffer> => {
   const params: Record<string, string> = {
     family: `${encodeURIComponent(family)}${weight ? `:wght@${weight}` : ""}`,
   };
@@ -57,4 +57,4 @@ export async function loadGoogleFont({
   }
 
   return fetch(fontUrl).then((res) => res.arrayBuffer());
-}
+};
